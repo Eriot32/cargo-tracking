@@ -32,7 +32,6 @@ const importedKeys = new Set<string>();
 let idCounter = 1;
 
 for (const row of rows) {
-  // Map based on the NEW FINAL Excel columns
   const ponumPib = row[1];
   const pengirim = row[2];
   const hawb = row[3];
@@ -56,15 +55,16 @@ for (const row of rows) {
   
   const mawbKey = normalize(mawb);
   const hawbKey = normalize(hawb);
+  const poKey = normalize(ponumPib);
   if (!mawbKey && !hawbKey) continue;
   
-  const recordKey = `${mawbKey}|${hawbKey}`;
+  // Update: Jadikan PO sebagai pembeda juga agar baris dengan HAWB sama tapi PO beda tetap masuk!
+  const recordKey = `${mawbKey}|${hawbKey}|${poKey}`;
   if (importedKeys.has(recordKey)) continue;
   importedKeys.add(recordKey);
 
   const flights = [];
   
-  // Flight 1 Parsing
   if (text(fl1Flight) || text(fl1Route)) {
     const depSchedule = [dateText(fl1DepDate), timeText(fl1DepTime)].filter(Boolean).join(' ');
     const arrSchedule = [dateText(fl1ArrDate), timeText(fl1ArrTime)].filter(Boolean).join(' ');
@@ -77,7 +77,6 @@ for (const row of rows) {
     });
   }
 
-  // Flight 2 Parsing
   if (text(fl2Flight) || text(fl2Route)) {
     const depSchedule = [dateText(fl2DepDate), timeText(fl2DepTime)].filter(Boolean).join(' ');
     const arrSchedule = [dateText(fl2ArrDate), timeText(fl2ArrTime)].filter(Boolean).join(' ');
