@@ -18,7 +18,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0437",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 07 Feb 2026"
+        "date_time": "Arrival: 07 Feb 2026 12:45"
       }
     ],
     "search_text": "100125/PE/POMI/26 QUINTA RADDISON INC NAEH-72171 18018999282 JFK - ICN → ICN - CGK KE0270 JFK - ICN KE0437 ICN - CGK"
@@ -40,7 +40,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "JL725",
         "route": "CGK",
-        "date_time": "Arrival: 30 Jan 2025"
+        "date_time": "Arrival: 30 Jan 2025 17:24"
       }
     ],
     "search_text": "92682/PE/POMI/24 JAPAN MACHINERY COMPANY UCI-70030563 13149844922 NRT → CGK JL725 NRT JL725 CGK"
@@ -62,7 +62,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "BI795",
         "route": "BWN - CGK",
-        "date_time": "Arrival: 05 Mar 2025"
+        "date_time": "Arrival: 05 Mar 2025 20:15"
       }
     ],
     "search_text": "94549/PE/POMI/24 APT POWERDRIVE UK25002547 67226080176 LHR - BWN → BWN - CGK BI098 LHR - BWN BI795 BWN - CGK"
@@ -84,7 +84,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "CI5855",
         "route": "TPE - CGK",
-        "date_time": "Arrival: 09 Feb 2025"
+        "date_time": "Arrival: 09 Feb 2025 12:31"
       }
     ],
     "search_text": "94907/PE/POMI/25 MCMASTER CARR SUPPLY CO CAEH-59149 29763771061 ORD - TPE → TPE - CGK CI5239 ORD - TPE CI5855 TPE - CGK"
@@ -106,7 +106,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "TR0262",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 23 Mar 2025"
+        "date_time": "Arrival: 23 Mar 2025 18:40"
       }
     ],
     "search_text": "94970/PE/POMI/25 M.C.V S.P.A IT25000880 61824259303 MXP - SIN → SIN - SUB SQ0355 MXP - SIN TR0262 SIN - SUB"
@@ -128,7 +128,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0928",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 24 May 2025"
+        "date_time": "Arrival: 24 May 2025 18:20"
       }
     ],
     "search_text": "94976/PE/POMI/25 PILGRIM INTERNATIONAL LTD SE25000840 61821250051 ARN - SIN → SIN - SUB SQ0351 ARN - SIN SQ0928 SIN - SUB"
@@ -150,7 +150,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0922",
         "route": "SUB",
-        "date_time": "Arrival: 02 Jul 2025"
+        "date_time": "Arrival: 02 Jul 2025 09:10"
       }
     ],
     "search_text": "94979/PE/POMI/25 BEAUDREY PORTUGAL LDA 00014769 61836071114 SIN → SUB SQ0922 SIN SQ0922 SUB"
@@ -172,7 +172,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0349",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 09 Mar 2025"
+        "date_time": "Arrival: 09 Mar 2025 03:20"
       }
     ],
     "search_text": "95311/PE/POMI/25 QUINTA RADDISON INC NAEH-71121 18026227121 JFK - ICN → ICN - CGK KE8250 JFK - ICN KE0349 ICN - CGK"
@@ -194,7 +194,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0627",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 08 Apr 2025"
+        "date_time": "Arrival: 08 Apr 2025 20:25"
       }
     ],
     "search_text": "95749/PE/POMI/25 QUINTA RADDISON INC NAEH-71200 18026227246 JFK - ICN → ICN - CGK KE250 JFK - ICN KE0627 ICN - CGK"
@@ -216,7 +216,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0928",
         "route": "SIN - CGK",
-        "date_time": "Arrival: 10 Jul 2025"
+        "date_time": "Arrival: 10 Jul 2025 18:20"
       }
     ],
     "search_text": "95985/PE/POMI/25 KENSEI SANGYO CO., LTD UCI-70032102 61844301924 NRT - SIN → SIN - CGK TR0809 NRT - SIN SQ0928 SIN - CGK"
@@ -238,7 +238,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0437",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 24 Nov 2025"
+        "date_time": "Arrival: 24 Nov 2025 12:45"
       }
     ],
     "search_text": "96149/PE/POMI/25 QUINTA RADDISON INC NAEH-71947 18018840393 JFK - ICN → ICN - CGK KE0250 JFK - ICN KE0437 ICN - CGK"
@@ -260,7 +260,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0922",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 07 Dec 2025"
+        "date_time": "Arrival: 07 Dec 2025 09:10"
       }
     ],
     "search_text": "96717/PE/POMI/25 NEWMANS VALVE H701388146 61848094686 MXP - SIN → SIN - SUB SQ0355 MXP - SIN SQ0922 SIN - SUB"
@@ -282,7 +282,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "GA0320",
         "route": "SUB",
-        "date_time": "Arrival: 18 Nov 2025"
+        "date_time": "Arrival: 18 Nov 2025 16:12"
       }
     ],
     "search_text": "96733/PE/POMI/25 EXIM & MFR ENTERPRISE RL202511005 12690436603 SIN - CGK → SUB GA0823 SIN - CGK GA0320 SUB"
@@ -304,7 +304,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0349",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 17 Jul 2025"
+        "date_time": "Arrival: 17 Jul 2025 03:20"
       }
     ],
     "search_text": "96809/PE/POMI/25 QUINTA RADDISON INC NAEH-71543 18026407721 JFK - ICN → ICN - CGK KE0252 JFK - ICN KE0349 ICN - CGK"
@@ -326,7 +326,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0922",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 16 Aug 2025"
+        "date_time": "Arrival: 16 Aug 2025 09:10"
       }
     ],
     "search_text": "97000/PE/POMI/25 CAJIMA CORPORATION LTD UCI-10056003 61846278256 KIX - SIN → SIN - SUB SQ0621 KIX - SIN SQ0922 SIN - SUB"
@@ -348,7 +348,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "CX779",
         "route": "HKG - SUB",
-        "date_time": "Arrival: 06 Dec 2025"
+        "date_time": "Arrival: 06 Dec 2025 18:18"
       }
     ],
     "search_text": "97405/PE/POMI/25 BUFFALO PUMPS S00002940 16001350996 ORD - HKG → HKG - SUB CX3291 ORD - HKG CX779 HKG - SUB"
@@ -370,7 +370,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "MH0871",
         "route": "KUL - SUB",
-        "date_time": "Arrival: 02 Apr 2026"
+        "date_time": "Arrival: 02 Apr 2026 09:10"
       }
     ],
     "search_text": "97547/PE/POMI/25 YOKOTA MANUFACTURING CO.,LTD SAF-80058650 23216101562 KIX -KUL → KUL - SUB MH0053 KIX -KUL MH0871 KUL - SUB"
@@ -392,7 +392,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0922",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 15 Feb 2026"
+        "date_time": "Arrival: 15 Feb 2026 09:10"
       }
     ],
     "search_text": "97714/PE/POMI/25 JOHN THOMPSON ENGINEERING PTY LTD MELAA3082371 61846648125 MEL - SIN → SIN - SUB SQ0238 MEL - SIN SQ0922 SIN - SUB"
@@ -414,7 +414,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0437",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 19 Dec 2025"
+        "date_time": "Arrival: 19 Dec 2025 12:45"
       }
     ],
     "search_text": "97816/PE/POMI/25 QUINTA RADDISON INC NAEH-72012 18018840581 JFK - ICN → ICN - CGK KE0252 JFK - ICN KE0437 ICN - CGK"
@@ -436,7 +436,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0928",
         "route": "SUB",
-        "date_time": "Arrival: 24 Sept 2025"
+        "date_time": "Arrival: 24 Sept 2025 18:20"
       }
     ],
     "search_text": "98209/PE/POMI/25 AESCO INTERNATIONAL PTE LTD 202509-00012 61847610861 SIN → SUB SQ0928 SIN SQ0928 SUB"
@@ -458,7 +458,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "CI0761",
         "route": "TPE - CGK",
-        "date_time": "Arrival: 21 Oct 2025"
+        "date_time": "Arrival: 21 Oct 2025 14:02"
       }
     ],
     "search_text": "98393/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59687 29769793146 ORD - TPE → TPE - CGK CI5313 ORD - TPE CI0761 TPE - CGK"
@@ -480,7 +480,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "GA0855",
         "route": "SUB",
-        "date_time": "Arrival: 13 Dec 2025"
+        "date_time": "Arrival: 13 Dec 2025 20:41"
       }
     ],
     "search_text": "98497/PE/POMI/25 QUINTA RADDISON INC RL202512007 12690483606 SIN → SUB GA0855 SIN GA0855 SUB"
@@ -502,7 +502,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "GA0855",
         "route": "SUB",
-        "date_time": "Arrival: 18 Dec 2025"
+        "date_time": "Arrival: 18 Dec 2025 22:02"
       }
     ],
     "search_text": "98773/PE/POMI/25 DEPCOM INTERNATIONAL RL202512009 12690483632 SIN → SUB GA0855 SIN GA0855 SUB"
@@ -524,7 +524,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0928",
         "route": "SIN - SUB",
-        "date_time": "Arrival: 18 Jan 2026"
+        "date_time": "Arrival: 18 Jan 2026 18:20"
       }
     ],
     "search_text": "98890/PE/POMI/25 HOWDEN AXIAL FANS APS DK26000095 61834679470 CPH - SIN → SIN - SUB SQ0351 CPH - SIN SQ0928 SIN - SUB"
@@ -546,7 +546,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "KE0437",
         "route": "ICN - CGK",
-        "date_time": "Arrival: 12 Dec 2025"
+        "date_time": "Arrival: 12 Dec 2025 12:45"
       }
     ],
     "search_text": "99391/PE/POMI/25 QUINTA RADDISON INC NAEH-71994 18018840544 JFK - ICN → ICN - CGK KE8258 JFK - ICN KE0437 ICN - CGK"
@@ -568,7 +568,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "CI5869",
         "route": "TPE - CGK",
-        "date_time": "Arrival: 24 Dec 2025"
+        "date_time": "Arrival: 24 Dec 2025 09:45"
       }
     ],
     "search_text": "99643/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59826 29769793242 ORD - TPE → TPE - CGK CI5239 ORD - TPE CI5869 TPE - CGK"
@@ -590,7 +590,7 @@ export const cargoData: CargoTracking[] = [
       {
         "flight": "SQ0922",
         "route": "SUB",
-        "date_time": "Arrival: 16 Apr 2026"
+        "date_time": "Arrival: 16 Apr 2026 09:10"
       }
     ],
     "search_text": "99696/PE/POMI/25 DEPCOM INTERNATIONAL JL202604060 61850819344 SIN → SUB SQ0922 SIN SQ0922 SUB"

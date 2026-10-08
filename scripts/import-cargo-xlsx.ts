@@ -47,8 +47,10 @@ for (const row of rows) {
   const depTimeStr = timeText(departureTime);
   const departureSchedule = [depDateStr, depTimeStr].filter(Boolean).join(' ');
 
-  // Arrival: date ONLY (no time as requested)
+  // Arrival: date + time
   const arrDateStr = dateText(arrivalDate);
+  const arrTimeStr = timeText(arrivalTime);
+  const arrivalSchedule = [arrDateStr, arrTimeStr].filter(Boolean).join(' ');
 
   const flights = [];
   
@@ -64,7 +66,7 @@ for (const row of rows) {
     flights.push({
       flight: text(arrivalFlight),
       route: text(destination),
-      date_time: arrDateStr ? `Arrival: ${arrDateStr}` : 'Arrival: TBA'
+      date_time: arrivalSchedule ? `Arrival: ${arrivalSchedule}` : 'Arrival: TBA'
     });
   }
 
