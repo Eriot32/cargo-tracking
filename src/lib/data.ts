@@ -8,20 +8,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-72171",
     "mawb": "18018999282",
     "pieces_weight": "1 pcs / 15 kg",
-    "routing": "JFK - ICN → 2/6/26",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE0270",
         "route": "JFK - ICN",
-        "date_time": "Departed: 05 Feb 2026 12:17"
+        "departed": "05 Feb 2026 12:17",
+        "arrived": "06 Feb 2026 03:32"
       },
       {
-        "flight": "03:32:00",
-        "route": "2/6/26",
-        "date_time": "Arrived: ICN - CGK KE043"
+        "flight": "KE0437",
+        "route": "ICN - CGK",
+        "departed": "07 Feb 2026 05:15",
+        "arrived": "07 Feb 2026 12:45"
       }
     ],
-    "search_text": "100125/PE/POMI/26 QUINTA RADDISON INC NAEH-72171 18018999282 JFK - ICN → 2/6/26 KE0270 JFK - ICN 03:32:00 2/6/26"
+    "search_text": "100125/PE/POMI/26 QUINTA RADDISON INC NAEH-72171 18018999282 JFK - ICN → ICN - CGK KE0270 JFK - ICN KE0437 ICN - CGK"
   },
   {
     "id": "2",
@@ -30,20 +32,16 @@ export const cargoData: CargoTracking[] = [
     "hawb": "UCI-70030563",
     "mawb": "13149844922",
     "pieces_weight": "1 pcs / 178 kg",
-    "routing": "NRT - CGK → 1/30/25",
+    "routing": "NRT - CGK",
     "flights": [
       {
         "flight": "JL725",
         "route": "NRT - CGK",
-        "date_time": "Departed: 30 Jan 2025 10:55"
-      },
-      {
-        "flight": "17:24:00",
-        "route": "1/30/25",
-        "date_time": "Arrived: TBA"
+        "departed": "30 Jan 2025 10:55",
+        "arrived": "30 Jan 2025 17:24"
       }
     ],
-    "search_text": "92682/PE/POMI/24 JAPAN MACHINERY COMPANY UCI-70030563 13149844922 NRT - CGK → 1/30/25 JL725 NRT - CGK 17:24:00 1/30/25"
+    "search_text": "92682/PE/POMI/24 JAPAN MACHINERY COMPANY UCI-70030563 13149844922 NRT - CGK JL725 NRT - CGK"
   },
   {
     "id": "3",
@@ -52,20 +50,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "UK25002547",
     "mawb": "67226080176",
     "pieces_weight": "1 pcs / 100 kg",
-    "routing": "LHR - BWN → 3/4/25",
+    "routing": "LHR - BWN → BWN - CGK",
     "flights": [
       {
         "flight": "BI098",
         "route": "LHR - BWN",
-        "date_time": "Departed: 03 Mar 2025 17:15"
+        "departed": "03 Mar 2025 17:15",
+        "arrived": "04 Mar 2025 09:20"
       },
       {
-        "flight": "09:20:00",
-        "route": "3/4/25",
-        "date_time": "Arrived: BWN - CGK BI795"
+        "flight": "BI795",
+        "route": "BWN - CGK",
+        "departed": "05 Mar 2025 19:00",
+        "arrived": "05 Mar 2025 20:15"
       }
     ],
-    "search_text": "94549/PE/POMI/24 APT POWERDRIVE UK25002547 67226080176 LHR - BWN → 3/4/25 BI098 LHR - BWN 09:20:00 3/4/25"
+    "search_text": "94549/PE/POMI/24 APT POWERDRIVE UK25002547 67226080176 LHR - BWN → BWN - CGK BI098 LHR - BWN BI795 BWN - CGK"
   },
   {
     "id": "4",
@@ -74,20 +74,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "CAEH-59149",
     "mawb": "29763771061",
     "pieces_weight": "1 pcs / 9 kg",
-    "routing": "ORD - TPE → 2/1/25",
+    "routing": "ORD - TPE → TPE - CGK",
     "flights": [
       {
         "flight": "CI5239",
         "route": "ORD - TPE",
-        "date_time": "Departed: 31 Jan 2025 21:33"
+        "departed": "31 Jan 2025 21:33",
+        "arrived": "01 Feb 2025 12:40"
       },
       {
-        "flight": "12:40:00",
-        "route": "2/1/25",
-        "date_time": "Arrived: TPE - CGK CI585"
+        "flight": "CI5855",
+        "route": "TPE - CGK",
+        "departed": "09 Feb 2025 08:17",
+        "arrived": "09 Feb 2025 12:31"
       }
     ],
-    "search_text": "94907/PE/POMI/25 MCMASTER CARR SUPPLY CO CAEH-59149 29763771061 ORD - TPE → 2/1/25 CI5239 ORD - TPE 12:40:00 2/1/25"
+    "search_text": "94907/PE/POMI/25 MCMASTER CARR SUPPLY CO CAEH-59149 29763771061 ORD - TPE → TPE - CGK CI5239 ORD - TPE CI5855 TPE - CGK"
   },
   {
     "id": "5",
@@ -96,20 +98,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "IT25000880",
     "mawb": "61824259303",
     "pieces_weight": "1 pcs / 475 kg",
-    "routing": "MXP - SIN → 3/18/25",
+    "routing": "MXP - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0355",
         "route": "MXP - SIN",
-        "date_time": "Departed: 17 Mar 2025 23:25"
+        "departed": "17 Mar 2025 23:25",
+        "arrived": "18 Mar 2025 04:45"
       },
       {
-        "flight": "04:45:00",
-        "route": "3/18/25",
-        "date_time": "Arrived: SIN - SUB TR026"
+        "flight": "TR0262",
+        "route": "SIN - SUB",
+        "departed": "23 Mar 2025 17:08",
+        "arrived": "23 Mar 2025 18:40"
       }
     ],
-    "search_text": "94970/PE/POMI/25 M.C.V S.P.A IT25000880 61824259303 MXP - SIN → 3/18/25 SQ0355 MXP - SIN 04:45:00 3/18/25"
+    "search_text": "94970/PE/POMI/25 M.C.V S.P.A IT25000880 61824259303 MXP - SIN → SIN - SUB SQ0355 MXP - SIN TR0262 SIN - SUB"
   },
   {
     "id": "6",
@@ -118,20 +122,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "SE25000840",
     "mawb": "61821250051",
     "pieces_weight": "1 pcs / 17.5 kg",
-    "routing": "ARN - SIN → 5/23/25",
+    "routing": "ARN - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0351",
         "route": "ARN - SIN",
-        "date_time": "Departed: 23 May 2025 11:55"
+        "departed": "23 May 2025 11:55",
+        "arrived": "23 May 2025 06:25"
       },
       {
-        "flight": "06:25:00",
-        "route": "5/23/25",
-        "date_time": "Arrived: SIN - SUB SQ092"
+        "flight": "SQ0928",
+        "route": "SIN - SUB",
+        "departed": "24 May 2025 16:55",
+        "arrived": "24 May 2025 18:18"
       }
     ],
-    "search_text": "94976/PE/POMI/25 PILGRIM INTERNATIONAL LTD SE25000840 61821250051 ARN - SIN → 5/23/25 SQ0351 ARN - SIN 06:25:00 5/23/25"
+    "search_text": "94976/PE/POMI/25 PILGRIM INTERNATIONAL LTD SE25000840 61821250051 ARN - SIN → SIN - SUB SQ0351 ARN - SIN SQ0928 SIN - SUB"
   },
   {
     "id": "7",
@@ -140,20 +146,16 @@ export const cargoData: CargoTracking[] = [
     "hawb": "00014769",
     "mawb": "61836071114",
     "pieces_weight": "1 pcs / 165 kg",
-    "routing": "SIN-SUB → 7/2/25",
+    "routing": "SIN - SUB",
     "flights": [
       {
         "flight": "SQ0922",
         "route": "SIN-SUB",
-        "date_time": "Departed: 02 Jul 2025 07:50"
-      },
-      {
-        "flight": "09:10:00",
-        "route": "7/2/25",
-        "date_time": "Arrived: TBA"
+        "departed": "02 Jul 2025 07:50",
+        "arrived": "02 Jul 2025 09:10"
       }
     ],
-    "search_text": "94979/PE/POMI/25 BEAUDREY PORTUGAL LDA 00014769 61836071114 SIN-SUB → 7/2/25 SQ0922 SIN-SUB 09:10:00 7/2/25"
+    "search_text": "94979/PE/POMI/25 BEAUDREY PORTUGAL LDA 00014769 61836071114 SIN - SUB SQ0922 SIN-SUB"
   },
   {
     "id": "8",
@@ -162,20 +164,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-71121",
     "mawb": "18026227121",
     "pieces_weight": "1 pcs / 5 kg",
-    "routing": "JFK - ICN → 3/5/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE8250",
         "route": "JFK - ICN",
-        "date_time": "Departed: 04 Mar 2025 12:15"
+        "departed": "04 Mar 2025 12:15",
+        "arrived": "05 Mar 2025 03:28"
       },
       {
-        "flight": "03:28:00",
-        "route": "3/5/25",
-        "date_time": "Arrived: ICN - CGK KE034"
+        "flight": "KE0349",
+        "route": "ICN - CGK",
+        "departed": "08 Mar 2025 20:22",
+        "arrived": "09 Mar 2025 03:20"
       }
     ],
-    "search_text": "95311/PE/POMI/25 QUINTA RADDISON INC NAEH-71121 18026227121 JFK - ICN → 3/5/25 KE8250 JFK - ICN 03:28:00 3/5/25"
+    "search_text": "95311/PE/POMI/25 QUINTA RADDISON INC NAEH-71121 18026227121 JFK - ICN → ICN - CGK KE8250 JFK - ICN KE0349 ICN - CGK"
   },
   {
     "id": "9",
@@ -184,20 +188,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-71200",
     "mawb": "18026227246",
     "pieces_weight": "1 pcs / 4 kg",
-    "routing": "JFK - ICN → 3/30/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE0250",
         "route": "JFK - ICN",
-        "date_time": "Departed: 29 Mar 2025 11:49"
+        "departed": "29 Mar 2025 11:49",
+        "arrived": "30 Mar 2025 02:45"
       },
       {
-        "flight": "02:45:00",
-        "route": "3/30/25",
-        "date_time": "Arrived: ICN - CGK KE062"
+        "flight": "KE0627",
+        "route": "ICN - CGK",
+        "departed": "08 Apr 2025 13:33",
+        "arrived": "08 Apr 2025 20:25"
       }
     ],
-    "search_text": "95749/PE/POMI/25 QUINTA RADDISON INC NAEH-71200 18026227246 JFK - ICN → 3/30/25 KE0250 JFK - ICN 02:45:00 3/30/25"
+    "search_text": "95749/PE/POMI/25 QUINTA RADDISON INC NAEH-71200 18026227246 JFK - ICN → ICN - CGK KE0250 JFK - ICN KE0627 ICN - CGK"
   },
   {
     "id": "10",
@@ -206,20 +212,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "UCI-70032102",
     "mawb": "61844301924",
     "pieces_weight": "1 pcs / 200.4 kg",
-    "routing": "NRT - SIN → 7/9/25",
+    "routing": "NRT - SIN → SIN - CGK",
     "flights": [
       {
         "flight": "TR0809",
         "route": "NRT - SIN",
-        "date_time": "Departed: 09 Jul 2025 08:47"
+        "departed": "09 Jul 2025 08:47",
+        "arrived": "09 Jul 2025 14:59"
       },
       {
-        "flight": "14:59:00",
-        "route": "7/9/25",
-        "date_time": "Arrived: SIN - CGK SQ092"
+        "flight": "SQ0928",
+        "route": "SIN - CGK",
+        "departed": "10 Jul 2025 16:55",
+        "arrived": "10 Jul 2025 18:20"
       }
     ],
-    "search_text": "95985/PE/POMI/25 KENSEI SANGYO CO., LTD UCI-70032102 61844301924 NRT - SIN → 7/9/25 TR0809 NRT - SIN 14:59:00 7/9/25"
+    "search_text": "95985/PE/POMI/25 KENSEI SANGYO CO., LTD UCI-70032102 61844301924 NRT - SIN → SIN - CGK TR0809 NRT - SIN SQ0928 SIN - CGK"
   },
   {
     "id": "11",
@@ -228,20 +236,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-71947",
     "mawb": "18018840393",
     "pieces_weight": "1 pcs / 5 kg",
-    "routing": "JFK - ICN → 11/24/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE0250",
         "route": "JFK - ICN",
-        "date_time": "Departed: 23 Nov 2025 11:49"
+        "departed": "23 Nov 2025 11:49",
+        "arrived": "24 Nov 2025 02:45"
       },
       {
-        "flight": "02:45:00",
-        "route": "11/24/25",
-        "date_time": "Arrived: ICN - CGK KE043"
+        "flight": "KE0437",
+        "route": "ICN - CGK",
+        "departed": "24 Nov 2025 05:28",
+        "arrived": "24 Nov 2025 12:45"
       }
     ],
-    "search_text": "96149/PE/POMI/25 QUINTA RADDISON INC NAEH-71947 18018840393 JFK - ICN → 11/24/25 KE0250 JFK - ICN 02:45:00 11/24/25"
+    "search_text": "96149/PE/POMI/25 QUINTA RADDISON INC NAEH-71947 18018840393 JFK - ICN → ICN - CGK KE0250 JFK - ICN KE0437 ICN - CGK"
   },
   {
     "id": "12",
@@ -250,20 +260,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "H701388146",
     "mawb": "61848094686",
     "pieces_weight": "1 pcs / 109 kg",
-    "routing": "MXP - SIN → 12/5/25",
+    "routing": "MXP - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0355",
         "route": "MXP - SIN",
-        "date_time": "Departed: 04 Dec 2025 23:25"
+        "departed": "04 Dec 2025 23:25",
+        "arrived": "05 Dec 2025 04:45"
       },
       {
-        "flight": "04:45:00",
-        "route": "12/5/25",
-        "date_time": "Arrived: SIN - SUB SQ092"
+        "flight": "SQ0922",
+        "route": "SIN - SUB",
+        "departed": "07 Dec 2025 07:50",
+        "arrived": "07 Dec 2025 09:10"
       }
     ],
-    "search_text": "96717/PE/POMI/25 NEWMANS VALVE H701388146 61848094686 MXP - SIN → 12/5/25 SQ0355 MXP - SIN 04:45:00 12/5/25"
+    "search_text": "96717/PE/POMI/25 NEWMANS VALVE H701388146 61848094686 MXP - SIN → SIN - SUB SQ0355 MXP - SIN SQ0922 SIN - SUB"
   },
   {
     "id": "13",
@@ -272,20 +284,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "RL202511005",
     "mawb": "12690436603",
     "pieces_weight": "3 pcs / 24 kg",
-    "routing": "SIN - CGK → 11/18/25",
+    "routing": "SIN - CGK → SUB",
     "flights": [
       {
         "flight": "GA0823",
         "route": "SIN - CGK",
-        "date_time": "Departed: 18 Nov 2025 07:09"
+        "departed": "18 Nov 2025 07:09",
+        "arrived": "18 Nov 2025 08:55"
       },
       {
-        "flight": "08:55:00",
-        "route": "11/18/25",
-        "date_time": "Arrived: SUB GA032"
+        "flight": "GA0320",
+        "route": "SUB",
+        "departed": "18 Nov 2025 16:12",
+        "arrived": "18 Nov 2025 19:47"
       }
     ],
-    "search_text": "96733/PE/POMI/25 EXIM & MFR ENTERPRISE RL202511005 12690436603 SIN - CGK → 11/18/25 GA0823 SIN - CGK 08:55:00 11/18/25"
+    "search_text": "96733/PE/POMI/25 EXIM & MFR ENTERPRISE RL202511005 12690436603 SIN - CGK → SUB GA0823 SIN - CGK GA0320 SUB"
   },
   {
     "id": "14",
@@ -294,20 +308,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-71543",
     "mawb": "18026407721",
     "pieces_weight": "1 pcs / 5 kg",
-    "routing": "JFK - ICN → 7/8/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE0252",
         "route": "JFK - ICN",
-        "date_time": "Departed: 08 Jul 2025 01:45"
+        "departed": "08 Jul 2025 01:45",
+        "arrived": "08 Jul 2025 16:50"
       },
       {
-        "flight": "16:50:00",
-        "route": "7/8/25",
-        "date_time": "Arrived: ICN - CGK KE034"
+        "flight": "KE0349",
+        "route": "ICN - CGK",
+        "departed": "16 Jul 2025 20:11",
+        "arrived": "17 Jul 2025 03:20"
       }
     ],
-    "search_text": "96809/PE/POMI/25 QUINTA RADDISON INC NAEH-71543 18026407721 JFK - ICN → 7/8/25 KE0252 JFK - ICN 16:50:00 7/8/25"
+    "search_text": "96809/PE/POMI/25 QUINTA RADDISON INC NAEH-71543 18026407721 JFK - ICN → ICN - CGK KE0252 JFK - ICN KE0349 ICN - CGK"
   },
   {
     "id": "15",
@@ -316,20 +332,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "UCI-10056003",
     "mawb": "61846278256",
     "pieces_weight": "1 pcs / 1 kg",
-    "routing": "KIX - SIN → 8/15/25",
+    "routing": "KIX - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0621",
         "route": "KIX - SIN",
-        "date_time": "Departed: 15 Aug 2025 17:22"
+        "departed": "15 Aug 2025 17:22",
+        "arrived": "15 Aug 2025 22:32"
       },
       {
-        "flight": "22:32:00",
-        "route": "8/15/25",
-        "date_time": "Arrived: SIN - SUB SQ092"
+        "flight": "SQ0922",
+        "route": "SIN - SUB",
+        "departed": "16 Aug 2025 07:50",
+        "arrived": "16 Aug 2025 09:10"
       }
     ],
-    "search_text": "97000/PE/POMI/25 CAJIMA CORPORATION LTD UCI-10056003 61846278256 KIX - SIN → 8/15/25 SQ0621 KIX - SIN 22:32:00 8/15/25"
+    "search_text": "97000/PE/POMI/25 CAJIMA CORPORATION LTD UCI-10056003 61846278256 KIX - SIN → SIN - SUB SQ0621 KIX - SIN SQ0922 SIN - SUB"
   },
   {
     "id": "16",
@@ -338,20 +356,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "S00002940",
     "mawb": "16001350996",
     "pieces_weight": "1 pcs / 13 kg",
-    "routing": "ORD - HKG → 12/5/25",
+    "routing": "ORD - HKG → HKG - SUB",
     "flights": [
       {
         "flight": "CX3291",
         "route": "ORD - HKG",
-        "date_time": "Departed: 04 Dec 2025 05:07"
+        "departed": "04 Dec 2025 05:07",
+        "arrived": "05 Dec 2025 15:03"
       },
       {
-        "flight": "15:03:00",
-        "route": "12/5/25",
-        "date_time": "Arrived: HKG - SUB CX077"
+        "flight": "CX0779",
+        "route": "HKG - SUB",
+        "departed": "06 Dec 2025 14:26",
+        "arrived": "06 Dec 2025 18:18"
       }
     ],
-    "search_text": "97405/PE/POMI/25 BUFFALO PUMPS S00002940 16001350996 ORD - HKG → 12/5/25 CX3291 ORD - HKG 15:03:00 12/5/25"
+    "search_text": "97405/PE/POMI/25 BUFFALO PUMPS S00002940 16001350996 ORD - HKG → HKG - SUB CX3291 ORD - HKG CX0779 HKG - SUB"
   },
   {
     "id": "17",
@@ -360,20 +380,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "SAF-80058650",
     "mawb": "23216101562",
     "pieces_weight": "1 pcs / 6 kg",
-    "routing": "KIX -KUL → 4/1/26",
+    "routing": "KIX  - KUL → KUL - SUB",
     "flights": [
       {
         "flight": "MH0053",
         "route": "KIX -KUL",
-        "date_time": "Departed: 01 Apr 2026 09:44"
+        "departed": "01 Apr 2026 09:44",
+        "arrived": "01 Apr 2026 15:53"
       },
       {
-        "flight": "15:53:00",
-        "route": "4/1/26",
-        "date_time": "Arrived: KUL - SUB MH087"
+        "flight": "MH0871",
+        "route": "KUL - SUB",
+        "departed": "02 Apr 2026 07:25",
+        "arrived": "02 Apr 2026 09:10"
       }
     ],
-    "search_text": "97547/PE/POMI/25 YOKOTA MANUFACTURING CO.,LTD SAF-80058650 23216101562 KIX -KUL → 4/1/26 MH0053 KIX -KUL 15:53:00 4/1/26"
+    "search_text": "97547/PE/POMI/25 YOKOTA MANUFACTURING CO.,LTD SAF-80058650 23216101562 KIX  - KUL → KUL - SUB MH0053 KIX -KUL MH0871 KUL - SUB"
   },
   {
     "id": "18",
@@ -382,20 +404,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "MELAA3082371",
     "mawb": "61846648125",
     "pieces_weight": "2 pcs / 18 kg",
-    "routing": "MEL - SIN → 2/12/26",
+    "routing": "MEL - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0238",
         "route": "MEL - SIN",
-        "date_time": "Departed: 12 Feb 2026 10:15"
+        "departed": "12 Feb 2026 10:15",
+        "arrived": "12 Feb 2026 15:15"
       },
       {
-        "flight": "15:15:00",
-        "route": "2/12/26",
-        "date_time": "Arrived: SIN - SUB SQ092"
+        "flight": "SQ0922",
+        "route": "SIN - SUB",
+        "departed": "15 Feb 2026 07:50",
+        "arrived": "15 Feb 2026 09:10"
       }
     ],
-    "search_text": "97714/PE/POMI/25 JOHN THOMPSON ENGINEERING PTY LTD MELAA3082371 61846648125 MEL - SIN → 2/12/26 SQ0238 MEL - SIN 15:15:00 2/12/26"
+    "search_text": "97714/PE/POMI/25 JOHN THOMPSON ENGINEERING PTY LTD MELAA3082371 61846648125 MEL - SIN → SIN - SUB SQ0238 MEL - SIN SQ0922 SIN - SUB"
   },
   {
     "id": "19",
@@ -404,20 +428,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-72012",
     "mawb": "18018840581",
     "pieces_weight": "1 pcs / 1 kg",
-    "routing": "JFK - ICN → 12/18/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE0252",
         "route": "JFK - ICN",
-        "date_time": "Departed: 17 Dec 2025 01:45"
+        "departed": "17 Dec 2025 01:45",
+        "arrived": "18 Dec 2025 16:51"
       },
       {
-        "flight": "16:51:00",
-        "route": "12/18/25",
-        "date_time": "Arrived: ICN - CGK KE043"
+        "flight": "KE0437",
+        "route": "ICN - CGK",
+        "departed": "19 Dec 2025 05:47",
+        "arrived": "19 Dec 2025 12:45"
       }
     ],
-    "search_text": "97816/PE/POMI/25 QUINTA RADDISON INC NAEH-72012 18018840581 JFK - ICN → 12/18/25 KE0252 JFK - ICN 16:51:00 12/18/25"
+    "search_text": "97816/PE/POMI/25 QUINTA RADDISON INC NAEH-72012 18018840581 JFK - ICN → ICN - CGK KE0252 JFK - ICN KE0437 ICN - CGK"
   },
   {
     "id": "20",
@@ -426,20 +452,16 @@ export const cargoData: CargoTracking[] = [
     "hawb": "202509-00012",
     "mawb": "61847610861",
     "pieces_weight": "1 pcs / 78.5 kg",
-    "routing": "SIN - SUB → 9/24/25",
+    "routing": "SIN - SUB",
     "flights": [
       {
         "flight": "SQ0928",
         "route": "SIN - SUB",
-        "date_time": "Departed: 24 Sept 2025 17:10"
-      },
-      {
-        "flight": "18:33:00",
-        "route": "9/24/25",
-        "date_time": "Arrived: TBA"
+        "departed": "24 Sept 2025 17:10",
+        "arrived": "24 Sept 2025 18:33"
       }
     ],
-    "search_text": "98209/PE/POMI/25 AESCO INTERNATIONAL PTE LTD 202509-00012 61847610861 SIN - SUB → 9/24/25 SQ0928 SIN - SUB 18:33:00 9/24/25"
+    "search_text": "98209/PE/POMI/25 AESCO INTERNATIONAL PTE LTD 202509-00012 61847610861 SIN - SUB SQ0928 SIN - SUB"
   },
   {
     "id": "21",
@@ -448,20 +470,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "CAEH-59687",
     "mawb": "29769793146",
     "pieces_weight": "1 pcs / 22 kg",
-    "routing": "ORD - TPE → 10/19/25",
+    "routing": "ORD - TPE → TPE - CGK",
     "flights": [
       {
         "flight": "CI5313",
         "route": "ORD - TPE",
-        "date_time": "Departed: 18 Oct 2025 14:12"
+        "departed": "18 Oct 2025 14:12",
+        "arrived": "19 Oct 2025 05:23"
       },
       {
-        "flight": "05:23:00",
-        "route": "10/19/25",
-        "date_time": "Arrived: TPE - CGK CI076"
+        "flight": "CI0761",
+        "route": "TPE - CGK",
+        "departed": "21 Oct 2025 09:29",
+        "arrived": "21 Oct 2025 14:02"
       }
     ],
-    "search_text": "98393/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59687 29769793146 ORD - TPE → 10/19/25 CI5313 ORD - TPE 05:23:00 10/19/25"
+    "search_text": "98393/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59687 29769793146 ORD - TPE → TPE - CGK CI5313 ORD - TPE CI0761 TPE - CGK"
   },
   {
     "id": "22",
@@ -470,20 +494,16 @@ export const cargoData: CargoTracking[] = [
     "hawb": "RL202512007",
     "mawb": "12690483606",
     "pieces_weight": "2 pcs / 21 kg",
-    "routing": "SIN -SUB → 12/13/25",
+    "routing": "SIN  - SUB",
     "flights": [
       {
         "flight": "GA0855",
         "route": "SIN -SUB",
-        "date_time": "Departed: 13 Dec 2025 19:16"
-      },
-      {
-        "flight": "20:41:00",
-        "route": "12/13/25",
-        "date_time": "Arrived: TBA"
+        "departed": "13 Dec 2025 19:16",
+        "arrived": "13 Dec 2025 20:41"
       }
     ],
-    "search_text": "98497/PE/POMI/25 QUINTA RADDISON INC RL202512007 12690483606 SIN -SUB → 12/13/25 GA0855 SIN -SUB 20:41:00 12/13/25"
+    "search_text": "98497/PE/POMI/25 QUINTA RADDISON INC RL202512007 12690483606 SIN  - SUB GA0855 SIN -SUB"
   },
   {
     "id": "23",
@@ -492,20 +512,16 @@ export const cargoData: CargoTracking[] = [
     "hawb": "RL202512009",
     "mawb": "12690483632",
     "pieces_weight": "2 pcs / 25 kg",
-    "routing": "SIN - SUB → 12/18/25",
+    "routing": "SIN - SUB",
     "flights": [
       {
         "flight": "GA0855",
         "route": "SIN - SUB",
-        "date_time": "Departed: 18 Dec 2025 19:17"
-      },
-      {
-        "flight": "22:02:00",
-        "route": "12/18/25",
-        "date_time": "Arrived: TBA"
+        "departed": "18 Dec 2025 19:17",
+        "arrived": "18 Dec 2025 22:02"
       }
     ],
-    "search_text": "98773/PE/POMI/25 DEPCOM INTERNATIONAL RL202512009 12690483632 SIN - SUB → 12/18/25 GA0855 SIN - SUB 22:02:00 12/18/25"
+    "search_text": "98773/PE/POMI/25 DEPCOM INTERNATIONAL RL202512009 12690483632 SIN - SUB GA0855 SIN - SUB"
   },
   {
     "id": "24",
@@ -514,20 +530,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "DK26000095",
     "mawb": "61834679470",
     "pieces_weight": "1 pcs / 5.5 kg",
-    "routing": "CPH - SIN → 1/17/26",
+    "routing": "CPH - SIN → SIN - SUB",
     "flights": [
       {
         "flight": "SQ0351",
         "route": "CPH - SIN",
-        "date_time": "Departed: 17 Jan 2026 11:55"
+        "departed": "17 Jan 2026 11:55",
+        "arrived": "17 Jan 2026 18:25"
       },
       {
-        "flight": "18:25:00",
-        "route": "1/17/26",
-        "date_time": "Arrived: SIN - SUB SQ092"
+        "flight": "SQ0928",
+        "route": "SIN - SUB",
+        "departed": "18 Jan 2026 17:05",
+        "arrived": "18 Jan 2026 18:33"
       }
     ],
-    "search_text": "98890/PE/POMI/25 HOWDEN AXIAL FANS APS DK26000095 61834679470 CPH - SIN → 1/17/26 SQ0351 CPH - SIN 18:25:00 1/17/26"
+    "search_text": "98890/PE/POMI/25 HOWDEN AXIAL FANS APS DK26000095 61834679470 CPH - SIN → SIN - SUB SQ0351 CPH - SIN SQ0928 SIN - SUB"
   },
   {
     "id": "25",
@@ -536,20 +554,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "NAEH-71994",
     "mawb": "18018840544",
     "pieces_weight": "1 pcs / 4 kg",
-    "routing": "JFK - ICN → 12/11/25",
+    "routing": "JFK - ICN → ICN - CGK",
     "flights": [
       {
         "flight": "KE8258",
         "route": "JFK - ICN",
-        "date_time": "Departed: 10 Dec 2025 11:00"
+        "departed": "10 Dec 2025 11:00",
+        "arrived": "11 Dec 2025 02:28"
       },
       {
-        "flight": "02:28:00",
-        "route": "12/11/25",
-        "date_time": "Arrived: ICN - CGK KE043"
+        "flight": "KE0437",
+        "route": "ICN - CGK",
+        "departed": "12 Dec 2025 05:11",
+        "arrived": "12 Dec 2025 12:45"
       }
     ],
-    "search_text": "99391/PE/POMI/25 QUINTA RADDISON INC NAEH-71994 18018840544 JFK - ICN → 12/11/25 KE8258 JFK - ICN 02:28:00 12/11/25"
+    "search_text": "99391/PE/POMI/25 QUINTA RADDISON INC NAEH-71994 18018840544 JFK - ICN → ICN - CGK KE8258 JFK - ICN KE0437 ICN - CGK"
   },
   {
     "id": "26",
@@ -558,20 +578,22 @@ export const cargoData: CargoTracking[] = [
     "hawb": "CAEH-59826",
     "mawb": "29769793242",
     "pieces_weight": "1 pcs / 5 kg",
-    "routing": "ORD - TPE → 12/20/25",
+    "routing": "ORD - TPE → TPE - CGK",
     "flights": [
       {
         "flight": "CI5239",
         "route": "ORD - TPE",
-        "date_time": "Departed: 20 Dec 2025 02:06"
+        "departed": "20 Dec 2025 02:06",
+        "arrived": "20 Dec 2025 17:31"
       },
       {
-        "flight": "17:31:00",
-        "route": "12/20/25",
-        "date_time": "Arrived: TPE - CGK CI586"
+        "flight": "CI5869",
+        "route": "TPE - CGK",
+        "departed": "24 Dec 2025 05:38",
+        "arrived": "24 Dec 2025 09:45"
       }
     ],
-    "search_text": "99643/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59826 29769793242 ORD - TPE → 12/20/25 CI5239 ORD - TPE 17:31:00 12/20/25"
+    "search_text": "99643/PE/POMI/25 MCMASTER CARR SUPPLY COMPANY CAEH-59826 29769793242 ORD - TPE → TPE - CGK CI5239 ORD - TPE CI5869 TPE - CGK"
   },
   {
     "id": "27",
@@ -580,19 +602,15 @@ export const cargoData: CargoTracking[] = [
     "hawb": "JL202604060",
     "mawb": "61850819344",
     "pieces_weight": "1 pcs / 13 kg",
-    "routing": "SIN - SUB → 4/16/26",
+    "routing": "SIN - SUB",
     "flights": [
       {
         "flight": "SQ0922",
         "route": "SIN - SUB",
-        "date_time": "Departed: 16 Apr 2026 07:50"
-      },
-      {
-        "flight": "09:10:00",
-        "route": "4/16/26",
-        "date_time": "Arrived: TBA"
+        "departed": "16 Apr 2026 07:50",
+        "arrived": "16 Apr 2026 09:10"
       }
     ],
-    "search_text": "99696/PE/POMI/25 DEPCOM INTERNATIONAL JL202604060 61850819344 SIN - SUB → 4/16/26 SQ0922 SIN - SUB 09:10:00 4/16/26"
+    "search_text": "99696/PE/POMI/25 DEPCOM INTERNATIONAL JL202604060 61850819344 SIN - SUB SQ0922 SIN - SUB"
   }
 ];

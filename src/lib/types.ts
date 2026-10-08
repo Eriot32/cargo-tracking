@@ -1,7 +1,8 @@
 export interface FlightInfo {
   flight: string;
   route: string;
-  date_time: string;
+  departed: string;
+  arrived: string;
 }
 
 export interface CargoTracking {

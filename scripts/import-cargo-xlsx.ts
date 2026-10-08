@@ -32,7 +32,27 @@ const importedKeys = new Set<string>();
 let idCounter = 1;
 
 for (const row of rows) {
-  const [, ponumPib, pengirim, hawb, mawb, quantity, weight, origin, departureFlight, departureDate, departureTime, destination, arrivalFlight, arrivalDate, arrivalTime] = row;
+  // Map based on the NEW FINAL Excel columns
+  const ponumPib = row[1];
+  const pengirim = row[2];
+  const hawb = row[3];
+  const mawb = row[4];
+  const quantity = row[5];
+  const weight = row[6];
+  
+  const fl1Route = row[7];
+  const fl1Flight = row[8];
+  const fl1DepDate = row[9];
+  const fl1DepTime = row[10];
+  const fl1ArrDate = row[11];
+  const fl1ArrTime = row[12];
+  
+  const fl2Route = row[13];
+  const fl2Flight = row[14];
+  const fl2DepDate = row[15];
+  const fl2DepTime = row[16];
+  const fl2ArrDate = row[17];
+  const fl2ArrTime = row[18];
   
   const mawbKey = normalize(mawb);
   const hawbKey = normalize(hawb);
@@ -42,31 +62,31 @@ for (const row of rows) {
   if (importedKeys.has(recordKey)) continue;
   importedKeys.add(recordKey);
 
-  // Departure: date + time
-  const depDateStr = dateText(departureDate);
-  const depTimeStr = timeText(departureTime);
-  const departureSchedule = [depDateStr, depTimeStr].filter(Boolean).join(' ');
-
-  // Arrival: date + time
-  const arrDateStr = dateText(arrivalDate);
-  const arrTimeStr = timeText(arrivalTime);
-  const arrivalSchedule = [arrDateStr, arrTimeStr].filter(Boolean).join(' ');
-
   const flights = [];
   
-  if (text(departureFlight) || text(origin)) {
+  // Flight 1 Parsing
+  if (text(fl1Flight) || text(fl1Route)) {
+    const depSchedule = [dateText(fl1DepDate), timeText(fl1DepTime)].filter(Boolean).join(' ');
+    const arrSchedule = [dateText(fl1ArrDate), timeText(fl1ArrTime)].filter(Boolean).join(' ');
+    
     flights.push({
-      flight: text(departureFlight),
-      route: text(origin),
-      date_time: departureSchedule ? `Departed: ${departureSchedule}` : 'Departed: TBA'
+      flight: text(fl1Flight),
+      route: text(fl1Route),
+      departed: depSchedule || 'TBA',
+      arrived: arrSchedule || 'TBA'
     });
   }
 
-  if (text(arrivalFlight) || text(destination)) {
+  // Flight 2 Parsing
+  if (text(fl2Flight) || text(fl2Route)) {
+    const depSchedule = [dateText(fl2DepDate), timeText(fl2DepTime)].filter(Boolean).join(' ');
+    const arrSchedule = [dateText(fl2ArrDate), timeText(fl2ArrTime)].filter(Boolean).join(' ');
+
     flights.push({
-      flight: text(arrivalFlight),
-      route: text(destination),
-      date_time: arrivalSchedule ? `Arrived: ${arrivalSchedule}` : 'Arrived: TBA'
+      flight: text(fl2Flight),
+      route: text(fl2Route),
+      departed: depSchedule || 'TBA',
+      arrived: arrSchedule || 'TBA'
     });
   }
 
@@ -74,7 +94,7 @@ for (const row of rows) {
     ? `${numberText(quantity)} pcs / ${numberText(weight)} kg` 
     : '-';
   
-  const routing = [text(origin), text(destination)].filter(Boolean).join(' → ');
+  const routing = [text(fl1Route), text(fl2Route)].filter(Boolean).join(' → ').replace(/ - /g, '-').replace(/→/g, '→').replace(/\s+/g, ' ').replace(/-([A-Z])/g, ' - $1');
 
   const item = {
     id: String(idCounter++),
