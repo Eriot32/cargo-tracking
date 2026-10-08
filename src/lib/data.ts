@@ -128,7 +128,7 @@ export const cargoData: CargoTracking[] = [
         "flight": "SQ0351",
         "route": "ARN - SIN",
         "departed": "23 May 2025 11:55",
-        "arrived": "23 May 2025 06:25"
+        "arrived": "24 May 2025 06:25"
       },
       {
         "flight": "SQ0928",
