@@ -39,13 +39,16 @@ for (const row of rows) {
   if (!mawbKey && !hawbKey) continue;
   
   const recordKey = `${mawbKey}|${hawbKey}`;
-  if (importedKeys.has(recordKey)) continue; // Skip duplicates
+  if (importedKeys.has(recordKey)) continue;
   importedKeys.add(recordKey);
 
-  // Extract only Departure Date & Time for Flight 1 as requested
+  // Departure: date + time
   const depDateStr = dateText(departureDate);
   const depTimeStr = timeText(departureTime);
   const departureSchedule = [depDateStr, depTimeStr].filter(Boolean).join(' ');
+
+  // Arrival: date ONLY (no time as requested)
+  const arrDateStr = dateText(arrivalDate);
 
   const flights = [];
   
@@ -57,12 +60,11 @@ for (const row of rows) {
     });
   }
 
-  // Add the second flight but without the Arrival time, since user explicitly said "only Departure date & time"
   if (text(arrivalFlight) || text(destination)) {
     flights.push({
       flight: text(arrivalFlight),
       route: text(destination),
-      date_time: 'Connecting Flight'
+      date_time: arrDateStr ? `Arrival: ${arrDateStr}` : 'Arrival: TBA'
     });
   }
 
@@ -70,7 +72,6 @@ for (const row of rows) {
     ? `${numberText(quantity)} pcs / ${numberText(weight)} kg` 
     : '-';
   
-  // Format routing properly
   const routing = [text(origin), text(destination)].filter(Boolean).join(' → ');
 
   const item = {

@@ -29,6 +29,18 @@ async function seed() {
   console.log(`Connecting to Supabase at ${supabaseUrl}...`);
   const supabase = createClient(supabaseUrl!, serviceRoleKey!);
 
+  // Clear existing data first to avoid duplicates
+  console.log('Clearing existing records...');
+  const { error: deleteError } = await supabase
+    .from('cargo_tracking')
+    .delete()
+    .gte('id', 0); // delete all rows
+
+  if (deleteError) {
+    console.error('Delete error:', deleteError);
+    throw deleteError;
+  }
+
   // Strip out the local 'id' field — the database uses SERIAL auto-increment
   const rows = cargoData.map(({ id, ...rest }) => rest);
 

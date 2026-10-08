@@ -38,7 +38,6 @@ export default function Home() {
       return;
     }
 
-    // Client-side search for speed (since we only have 28 records locally for now)
     const term = searchQuery.toUpperCase();
     const filtered = cargoData.filter(item => 
       item.search_text.includes(term)
@@ -48,12 +47,12 @@ export default function Home() {
     setIsSearching(false);
   };
 
-  if (!isMounted) return null; // Prevent hydration mismatch
+  if (!isMounted) return null;
 
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col">
       {/* Header / Hero */}
-      <div className="bg-slate-900 text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="bg-slate-900 text-white pt-12 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -67,6 +66,21 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-7xl mx-auto text-center">
+          {/* Company Logo & Name */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <img 
+              src="/logo.png" 
+              alt="PT. Abhinaya Trans Nuswantara" 
+              className="w-16 h-16 object-contain rounded-lg bg-white/10 p-1"
+            />
+            <div className="text-left">
+              <h2 className="text-lg md:text-xl font-bold tracking-tight">
+                PT. ABHINAYA TRANS NUSWANTARA
+              </h2>
+              <p className="text-sm text-slate-400">Freight Forwarding & Logistics</p>
+            </div>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-sm font-medium mb-6">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
             System Live
@@ -75,7 +89,7 @@ export default function Home() {
             Cargo Tracking Search
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
-            Instantly search across Master Air Waybills, routings, shippers, and flight status.
+            Instantly search across HAWB, MAWB, routings, shippers, and flight status.
           </p>
 
           {/* Search Bar Component */}
@@ -92,7 +106,7 @@ export default function Home() {
         
         {isLoadingData ? (
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 text-center text-slate-500">
-            Memuat data cargo...
+            Loading cargo data...
           </div>
         ) : results.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 text-center">
@@ -120,7 +134,11 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm">
-        <p>PAITON Cargo Tracking System © {new Date().getFullYear()}</p>
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
+          <span className="font-semibold text-slate-700">PT. ABHINAYA TRANS NUSWANTARA</span>
+        </div>
+        <p>Cargo Tracking System &copy; {new Date().getFullYear()}</p>
       </footer>
 
       {/* Detail Modal */}
