@@ -1,54 +1,75 @@
-# PAITON Cargo Tracking
+# Cargo Tracking Search — PAITON
 
-Aplikasi pencarian data cargo berbasis Next.js. Data awal berasal dari dokumen internal, lalu dapat dipindahkan ke Supabase agar mudah diperbarui tanpa mengubah kode aplikasi.
+A professional cargo tracking search engine built with **Next.js 14**, **Tailwind CSS**, and **TypeScript**.  
+Search instantly by **HAWB** (House Air Waybill), MAWB, shipper name, routing, or flight number.
 
-## Struktur proyek
+## Features
 
-```
-src/                    Aplikasi web
-src/components/         Komponen tampilan
-src/lib/                Tipe data dan koneksi Supabase
-public/tracking-images/ Gambar bukti tracking yang ditampilkan situs
-scripts/                Utilitas impor data
-supabase/migrations/    Skema database Supabase
-data/source/            Dokumen Excel/Word asli (lokal, tidak masuk Git)
-```
+- ⚡ **Instant Search** — Real-time filtering as you type
+- 📦 **HAWB-focused** — Primary search by House Air Waybill number
+- 🖼️ **Tracking Screenshots** — Original MAWB document images attached to each record
+- 📱 **Responsive** — Works on desktop, tablet, and mobile
+- 🎨 **Professional UI** — Clean, minimal design with Tailwind CSS
 
-## Jalankan di komputer
+## Tech Stack
 
-1. Salin `.env.local.example` menjadi `.env.local`.
-2. Jalankan `npm install` sekali, lalu `npm run dev`.
-3. Buka `http://localhost:3000`.
+| Layer      | Technology          |
+|------------|---------------------|
+| Framework  | Next.js 14 (App Router) |
+| Styling    | Tailwind CSS 3      |
+| Language   | TypeScript          |
+| Database   | Supabase (PostgreSQL) — *optional, works offline with local JSON data* |
+| Hosting    | Vercel              |
 
-Tanpa konfigurasi Supabase, aplikasi memakai data cadangan lokal agar tetap dapat didemonstrasikan.
-
-## Memperbarui data dari Excel
-
-Simpan Excel baru di `data/source/`, lalu jalankan:
+## Getting Started
 
 ```bash
-npm run import:tracking -- "data/source/nama-file.xlsx"
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-Importer mencocokkan data berdasarkan kombinasi MAWB dan HAWB. Baris duplikat tidak ditambahkan; kolom, rute, berat, dan jadwal yang sebelumnya kosong akan dilengkapi tanpa mengganti nilai yang sudah ada.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Menghubungkan Supabase
+## Importing Data
 
-1. Buat proyek di [Supabase](https://supabase.com/dashboard), pilih region terdekat (Singapore).
-2. Di **SQL Editor**, jalankan isi `supabase/migrations/001_create_cargo_tracking.sql`.
-3. Di **Project Settings → API**, salin **Project URL** dan **anon public key** ke `.env.local`.
-4. Untuk impor pertama, tambahkan sementara `SUPABASE_SERVICE_ROLE_KEY` hanya ke `.env.local` (jangan pernah ke Vercel atau GitHub), lalu jalankan `npm run seed`.
-5. Hapus `SUPABASE_SERVICE_ROLE_KEY` dari `.env.local` setelah impor selesai bila tidak diperlukan lagi.
+To update cargo data from a new Excel file:
 
-## Deploy ke Vercel
+```bash
+npm run import:tracking -- "data/source/YOUR_FILE.xlsx"
+```
 
-1. Buat repository GitHub **private** untuk proyek ini. Data tracking akan tampil di situs publik, tetapi dokumen sumber dan riwayat pengembangan tetap tidak terbuka.
-2. Import repository tersebut di [Vercel](https://vercel.com/new).
-3. Masukkan dua environment variable pada Vercel: `NEXT_PUBLIC_SUPABASE_URL` dan `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-4. Klik **Deploy**. Setelah itu setiap push ke branch utama akan otomatis memperbarui situs.
+This reads the Excel, deduplicates records, and writes the result to `src/lib/data.ts`.
 
-## Keamanan data
+## Project Structure
 
-- `.env.local`, dokumen Word, dan folder `data/source` tidak dikirim ke GitHub.
-- Jangan memasukkan `SUPABASE_SERVICE_ROLE_KEY` ke kode, GitHub, atau Vercel.
-- Tabel database hanya membuka akses baca untuk pengunjung; perubahan data dilakukan melalui dashboard Supabase.
+```
+├── public/
+│   └── tracking-images/     # MAWB tracking screenshots
+├── data/
+│   └── source/              # Source Excel/DOCX files (gitignored)
+├── scripts/
+│   ├── import-cargo-xlsx.ts  # Excel import & dedup script
+│   └── seed-supabase.ts      # Supabase seeding script
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx          # Main search page
+│   ├── components/
+│   │   ├── SearchBar.tsx
+│   │   ├── TrackingCard.tsx
+│   │   └── TrackingModal.tsx
+│   └── lib/
+│       ├── cargo.ts          # Data fetching helper
+│       ├── data.ts           # Generated data (from import script)
+│       ├── supabase.ts       # Supabase client
+│       └── types.ts          # TypeScript interfaces
+└── supabase/                 # Supabase migration files
+```
+
+## License
+
+Private — PAITON Internal Use

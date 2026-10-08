@@ -9,7 +9,6 @@ if (!inputFile) throw new Error('Usage: npm run import:tracking -- <path-to-xlsx
 
 const normalize = (value: unknown) => String(value ?? '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
 const text = (value: unknown) => String(value ?? '').trim();
-const isMissing = (value: string) => !value || value === '-' || value.toLowerCase() === 'rute standar';
 const numberText = (value: unknown) => {
   const parsed = Number(text(value).replace(/,/g, ''));
   return Number.isFinite(parsed) ? String(parsed) : text(value);
@@ -31,32 +30,27 @@ function makeFlight(flight: unknown, route: unknown, label: string, date: unknow
   return { flight: flightText, route: routeText, date_time: schedule ? `${label}: ${schedule}` : label };
 }
 
-function mergeFlights(current: FlightInfo[], incoming: FlightInfo[]) {
-  const result = [...current];
-  for (const flight of incoming) {
-    // A route is one leg of the journey. If it is already present, do not add a
-    // conflicting flight number from a later spreadsheet; this importer only
-    // fills missing data and never replaces existing tracking information.
-    const existing = result.find((item) => normalize(item.route) === normalize(flight.route));
-    if (!existing) result.push(flight);
-    else if (isMissing(existing.date_time) && !isMissing(flight.date_time)) existing.date_time = flight.date_time;
-  }
-  return result;
-}
-
 const workbook = xlsx.readFile(inputFile, { cellDates: false });
 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 const rows = xlsx.utils.sheet_to_json<unknown[]>(worksheet, { header: 1, defval: '', raw: false }).slice(1);
 const records = cargoData.map((item) => ({ ...item, flights: [...item.flights] }));
+const importedKeys = new Set<string>();
 let updated = 0;
 let added = 0;
 let duplicates = 0;
+let unchanged = 0;
 
 for (const row of rows) {
   const [, ponumPib, pengirim, hawb, mawb, quantity, weight, origin, departureFlight, departureDate, departureTime, destination, arrivalFlight, arrivalDate, arrivalTime] = row;
   const mawbKey = normalize(mawb);
   const hawbKey = normalize(hawb);
   if (!mawbKey && !hawbKey) continue;
+  const recordKey = `${mawbKey}|${hawbKey}`;
+  if (importedKeys.has(recordKey)) {
+    duplicates += 1;
+    continue;
+  }
+  importedKeys.add(recordKey);
 
   const current = records.find((item) => normalize(item.mawb) === mawbKey && normalize(item.hawb) === hawbKey);
   const incomingFlights = [
@@ -68,13 +62,17 @@ for (const row of rows) {
 
   if (current) {
     const before = JSON.stringify(current);
-    if (isMissing(current.ponum_pib)) current.ponum_pib = text(ponumPib);
-    if (isMissing(current.pengirim)) current.pengirim = text(pengirim);
-    if (isMissing(current.pieces_weight)) current.pieces_weight = piecesWeight;
-    if (isMissing(current.routing)) current.routing = routing;
-    current.flights = mergeFlights(current.flights, incomingFlights);
+    // The spreadsheet is the source of truth. Keep only the locally managed
+    // image URL, then replace every tracking field with the spreadsheet value.
+    current.ponum_pib = text(ponumPib);
+    current.pengirim = text(pengirim);
+    current.hawb = text(hawb);
+    current.mawb = text(mawb);
+    current.pieces_weight = piecesWeight || '-';
+    current.routing = routing || 'Rute Standar';
+    current.flights = incomingFlights;
     if (JSON.stringify(current) !== before) updated += 1;
-    else duplicates += 1;
+    else unchanged += 1;
     continue;
   }
 
@@ -93,4 +91,4 @@ for (const item of records) {
 
 const output = ["import { CargoTracking } from './types';", '', `export const cargoData: CargoTracking[] = ${JSON.stringify(records, null, 2)};`, ''].join('\n');
 fs.writeFileSync(path.join(process.cwd(), 'src', 'lib', 'data.ts'), output);
-console.log(`Import complete: ${added} added, ${updated} enriched, ${duplicates} unchanged. Total: ${records.length}.`);
+console.log(`Import complete: ${added} added, ${updated} synchronized, ${duplicates} duplicate rows skipped, ${unchanged} unchanged. Total: ${records.length}.`);

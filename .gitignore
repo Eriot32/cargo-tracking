@@ -23,7 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env
+# Local env files
 .env*.local
 
 # Vercel
@@ -33,7 +33,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Source documents and extracted working data (keep these local)
+# Source documents (keep local, do not push to GitHub)
 /data/source/
 /extracted_images/
 *.docx
+*.xlsx
