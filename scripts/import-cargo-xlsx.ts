@@ -58,7 +58,7 @@ for (const row of rows) {
     flights.push({
       flight: text(departureFlight),
       route: text(origin),
-      date_time: departureSchedule ? `Departure: ${departureSchedule}` : 'Departure: TBA'
+      date_time: departureSchedule ? `Departed: ${departureSchedule}` : 'Departed: TBA'
     });
   }
 
@@ -66,7 +66,7 @@ for (const row of rows) {
     flights.push({
       flight: text(arrivalFlight),
       route: text(destination),
-      date_time: arrivalSchedule ? `Arrival: ${arrivalSchedule}` : 'Arrival: TBA'
+      date_time: arrivalSchedule ? `Arrived: ${arrivalSchedule}` : 'Arrived: TBA'
     });
   }
 
