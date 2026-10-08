@@ -64,7 +64,7 @@ export default function SearchBar({ onSearch, isLoading, resultCount }: SearchBa
           onChange={(e) => handleChange(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          placeholder="Cari berdasarkan No HAWB, MAWB, Rute penerbangan..."
+          placeholder="Search by HAWB, MAWB, Routing..."
           className="w-full py-4 pr-4 text-base text-slate-800 placeholder-slate-400 bg-transparent outline-none font-medium"
         />
 
@@ -91,11 +91,11 @@ export default function SearchBar({ onSearch, isLoading, resultCount }: SearchBa
           {query ? (
             resultCount !== undefined ? (
               <span>
-                Ditemukan <span className="font-medium text-slate-600">{resultCount}</span> hasil
+                Found <span className="font-medium text-slate-600">{resultCount}</span> result(s)
               </span>
             ) : null
           ) : (
-            <span>Coba cari: <span className="font-medium text-slate-500">NAEH-72171</span>, <span className="font-medium text-slate-500">18018999282</span>, atau <span className="font-medium text-slate-500">JFK - ICN</span></span>
+            <span>Try searching: <span className="font-medium text-slate-500">NAEH-72171</span>, <span className="font-medium text-slate-500">18018999282</span>, or <span className="font-medium text-slate-500">JFK - ICN</span></span>
           )}
         </div>
       </div>

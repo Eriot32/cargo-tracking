@@ -1,4 +1,3 @@
-
 export interface FlightInfo {
   flight: string;
   route: string;
@@ -13,7 +12,6 @@ export interface CargoTracking {
   mawb: string;
   pieces_weight: string;
   routing: string;
-  image_url: string;
   flights: FlightInfo[];
   search_text: string;
 }
