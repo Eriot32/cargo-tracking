@@ -3,15 +3,15 @@ import { supabase } from './supabase';
 import type { CargoTracking } from './types';
 
 /**
- * Uses Supabase after it is configured. The local data is intentionally kept as
- * a development fallback, so the interface remains usable before first setup.
+ * Fetches cargo data from Supabase when configured.
+ * Falls back to local static data during development or if Supabase is unavailable.
  */
 export async function getCargoData(): Promise<CargoTracking[]> {
   if (!supabase) return cargoData;
 
   const { data, error } = await supabase
     .from('cargo_tracking')
-    .select('id, ponum_pib, pengirim, hawb, mawb, pieces_weight, routing, image_url, flights, search_text')
+    .select('id, ponum_pib, pengirim, hawb, mawb, pieces_weight, routing, flights, search_text')
     .order('id');
 
   if (error || !data) {
@@ -19,5 +19,6 @@ export async function getCargoData(): Promise<CargoTracking[]> {
     return cargoData;
   }
 
-  return data as CargoTracking[];
+  // Map database id (number) to string for compatibility with local types
+  return data.map((row: any) => ({ ...row, id: String(row.id) })) as CargoTracking[];
 }
