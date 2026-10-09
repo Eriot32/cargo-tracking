@@ -137,11 +137,11 @@ export default function AdminPanel() {
         const records = processExcelRows(rows);
 
         setUploadStatus('Menghapus data lama di database...');
-        const { error: delError } = await supabase.from('cargo_tracking').delete().gte('id', 0);
+        const { error: delError } = await supabase!.from('cargo_tracking').delete().gte('id', 0);
         if (delError) throw delError;
 
         setUploadStatus(`Mengunggah ${records.length} data baru...`);
-        const { error: insError } = await supabase.from('cargo_tracking').insert(records);
+        const { error: insError } = await supabase!.from('cargo_tracking').insert(records);
         if (insError) throw insError;
 
         setUploadStatus(`✅ Berhasil! ${records.length} data diperbarui.`);
@@ -265,11 +265,11 @@ export default function AdminPanel() {
     try {
       if (formData.id) {
         // Update
-        const { error } = await supabase.from('cargo_tracking').update(record).eq('id', formData.id);
+        const { error } = await supabase!.from('cargo_tracking').update(record).eq('id', formData.id);
         if (error) throw error;
       } else {
         // Insert
-        const { error } = await supabase.from('cargo_tracking').insert(record);
+        const { error } = await supabase!.from('cargo_tracking').insert(record);
         if (error) throw error;
       }
       setIsModalOpen(false);
@@ -283,7 +283,7 @@ export default function AdminPanel() {
 
   const handleDelete = async (id: string, hawb: string) => {
     if (!supabase || !confirm(`Yakin ingin menghapus resi ${hawb}?`)) return;
-    await supabase.from('cargo_tracking').delete().eq('id', id);
+    await supabase!.from('cargo_tracking').delete().eq('id', id);
     fetchData();
   };
 
