@@ -1,40 +1,27 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
   isLoading?: boolean;
-  resultCount?: number;
 }
 
-export default function SearchBar({ onSearch, isLoading, resultCount }: SearchBarProps) {
+export default function SearchBar({ onSearch, isLoading }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
-  const handleChange = (value: string) => {
-    setQuery(value);
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
-      onSearch(value);
-    }, 300);
-  };
-
-  const handleClear = () => {
-    setQuery('');
-    onSearch('');
-    inputRef.current?.focus();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onSearch(query.trim());
+    }
   };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <div
+      <form
+        onSubmit={handleSubmit}
         className={`relative flex items-center bg-white rounded-xl border-2 transition-all duration-200 ${
           isFocused
             ? 'border-primary-500 shadow-lg shadow-primary-500/10'
@@ -58,47 +45,29 @@ export default function SearchBar({ onSearch, isLoading, resultCount }: SearchBa
         </div>
 
         <input
-          ref={inputRef}
           type="text"
           value={query}
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          placeholder="Search by HAWB, MAWB, Routing..."
-          className="w-full py-4 pr-4 text-base text-slate-800 placeholder-slate-400 bg-transparent outline-none font-medium"
+          placeholder="Enter exact HAWB or MAWB number..."
+          className="w-full py-4 pr-4 text-base text-slate-800 placeholder-slate-400 bg-transparent outline-none font-medium uppercase"
         />
 
-        {isLoading && (
-          <div className="pr-3">
-            <div className="w-5 h-5 border-2 border-primary-500 border-t-transparent rounded-full animate-spin" />
-          </div>
-        )}
-
-        {query && !isLoading && (
+        <div className="pr-2">
           <button
-            onClick={handleClear}
-            className="pr-4 text-slate-400 hover:text-slate-600 transition-colors"
+            type="submit"
+            disabled={isLoading || !query.trim()}
+            className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            {isLoading ? (
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              'Track Cargo'
+            )}
           </button>
-        )}
-      </div>
-
-      <div className="mt-3 flex items-center justify-between px-1">
-        <div className="text-sm text-slate-400">
-          {query ? (
-            resultCount !== undefined ? (
-              <span>
-                Found <span className="font-medium text-slate-600">{resultCount}</span> result(s)
-              </span>
-            ) : null
-          ) : (
-            <span>Try searching: <span className="font-medium text-slate-500">NAEH-72171</span>, <span className="font-medium text-slate-500">18018999282</span>, or <span className="font-medium text-slate-500">JFK - ICN</span></span>
-          )}
         </div>
-      </div>
+      </form>
     </div>
   );
 }
