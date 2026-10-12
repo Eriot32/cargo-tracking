@@ -68,29 +68,34 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section - Clean Light Corporate Background without GIF */}
-      <section className="relative bg-white border-b border-slate-200/80 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+      {/* Hero Section with living-final.gif strictly contained in hero background */}
+      <section 
+        className="relative overflow-hidden border-b border-slate-200/80 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center bg-slate-900 bg-cover bg-center"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("/living-final.gif")'
+        }}
+      >
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3 shadow-sm backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
             Real-time Cargo Tracking System
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-2 drop-shadow-md">
             Cargo Tracking Portal
           </h1>
-          <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto mb-8 font-medium">
+          <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto mb-8 font-medium drop-shadow">
             Select your shipment mode below and enter your exact tracking number.
           </p>
 
           {/* Mode Switcher Tabs */}
-          <div className="inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 mb-8 max-w-md w-full shadow-inner">
+          <div className="inline-flex p-1.5 rounded-2xl bg-slate-900/80 border border-slate-700/80 mb-8 max-w-md w-full shadow-2xl backdrop-blur-md">
             <button
               onClick={() => handleTabChange('air')}
               className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'air'
                   ? 'bg-amber-400 text-slate-950 shadow-md scale-[1.01]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
               }`}
             >
               <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +109,7 @@ export default function Home() {
               className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'ocean'
                   ? 'bg-blue-600 text-white shadow-md scale-[1.01]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
               }`}
             >
               <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
