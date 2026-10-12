@@ -72,7 +72,7 @@ export default function Home() {
       <section 
         className="relative overflow-hidden border-b border-slate-200/80 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center bg-slate-900 bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("/living-final.gif")'
+          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("https://owpfmzxomwhurqkkkeui.supabase.co/storage/v1/object/public/assets/living-final.gif")'
         }}
       >
         <div className="relative z-10 max-w-4xl mx-auto">

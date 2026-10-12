@@ -38,3 +38,4 @@ next-env.d.ts
 /extracted_images/
 *.docx
 *.xlsx
+*.gif
