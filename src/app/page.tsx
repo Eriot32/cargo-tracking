@@ -40,11 +40,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      {/* Top Header - Clean Full White with Subtle Border & Yellow Accent Line */}
+      {/* Top Header Navbar - Full White with Yellow Line */}
       <header className="bg-white border-b border-slate-200/80 shadow-sm relative z-20">
         <div className="h-1.5 w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-          {/* Logo - Natural Clean Display without any card or backdrop */}
+          {/* Logo */}
           <div className="flex items-center">
             <img
               src="/logo.png"
@@ -68,29 +68,41 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section - Clean Light Theme */}
-      <section className="bg-white border-b border-slate-200/70 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center relative">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+      {/* Hero Section with living-final.gif strictly as background between header and content */}
+      <section className="relative overflow-hidden border-b border-slate-200/80 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center bg-slate-900">
+        {/* The GIF Background: Strictly contained, low opacity, visible & subtle */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <img
+            src="/living-final.gif"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-30 filter brightness-105 contrast-110"
+          />
+          {/* Dark gradient overlay to keep text ultra-legible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-900/60 to-slate-950/80" />
+        </div>
+
+        {/* Content sitting cleanly above the gif background */}
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3 shadow-sm backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
             Real-time Cargo Tracking System
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2 drop-shadow-md">
             Cargo Tracking Portal
           </h1>
-          <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto mb-8 font-medium">
+          <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto mb-8 font-medium drop-shadow">
             Select your shipment mode below and enter your exact tracking number.
           </p>
 
-          {/* Mode Switcher Tabs (Zero Emojis, Clean SVG Icons) */}
-          <div className="inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 mb-8 max-w-md w-full shadow-inner">
+          {/* Mode Switcher Tabs */}
+          <div className="inline-flex p-1.5 rounded-2xl bg-slate-900/80 border border-slate-700/80 mb-8 max-w-md w-full shadow-2xl backdrop-blur-md">
             <button
               onClick={() => handleTabChange('air')}
               className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'air'
                   ? 'bg-amber-400 text-slate-950 shadow-md scale-[1.01]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
               }`}
             >
               <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +116,7 @@ export default function Home() {
               className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'ocean'
                   ? 'bg-blue-600 text-white shadow-md scale-[1.01]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
               }`}
             >
               <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,7 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Main Content Area */}
+      {/* Main Content Area (Clean White/Slate Background below the hero) */}
       <div className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 pb-20">
         {!hasSearched ? (
           <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-12 text-center text-slate-500">
