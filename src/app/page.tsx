@@ -40,35 +40,33 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-100 flex flex-col font-sans">
-      {/* Top Banner / Hero Section with Animated Living Background */}
-      <header className="relative overflow-hidden bg-slate-950 text-white border-b-4 border-amber-400">
-        {/* Animated Background from living-final.gif */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Header / Hero with living-final.gif as ambient video backdrop */}
+      <header className="relative bg-slate-900 text-white overflow-hidden border-b-4 border-amber-400">
+        {/* Animated backdrop strictly constrained inside header */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
             src="/living-final.gif"
-            alt="Living Logistics Backdrop"
-            className="w-full h-full object-cover opacity-35 filter brightness-90 contrast-125"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-25 filter brightness-95"
           />
-          {/* Deep gradient overlay to ensure perfect contrast and cohesive color fill */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/75 to-slate-950/95" />
+          <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px]" />
         </div>
 
         {/* Top Navbar Header */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between border-b border-white/10">
-          {/* Big, Prominent Logo */}
-          <div className="bg-white/95 px-5 py-3 rounded-2xl shadow-2xl border border-amber-400/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between border-b border-white/10">
+          {/* Logo - Proportioned cleanly, not oversized */}
+          <div className="bg-white/95 px-4 py-2 rounded-xl shadow-md border border-amber-400/40">
             <img
               src="/logo.png"
-              alt="PT. Abhinaya Trans Nuswantara"
-              className="h-16 sm:h-24 md:h-28 w-auto object-contain"
+              alt="Logo"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
           </div>
 
-          {/* Admin Portal Link */}
           <div>
             <a
               href="/admin"
-              className="text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl bg-slate-900/90 text-amber-300 border border-amber-400/30 hover:bg-amber-400 hover:text-slate-950 transition-all flex items-center gap-2 shadow-lg backdrop-blur-sm"
+              className="text-xs sm:text-sm font-bold px-3.5 py-2 rounded-lg bg-slate-800 text-amber-300 border border-slate-700 hover:bg-slate-700 hover:text-amber-200 transition-colors flex items-center gap-2 shadow"
             >
               <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -80,29 +78,29 @@ export default function Home() {
 
         {/* Hero Section Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-black uppercase tracking-wider mb-5 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
             Real-time Cargo Tracking System
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3 drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">
             Cargo Tracking Portal
           </h1>
-          <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto mb-8 font-medium drop-shadow">
-            Select your shipment mode below and enter your exact tracking number to verify real-time status.
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-medium">
+            Select your shipment mode below and enter your exact tracking number.
           </p>
 
-          {/* TWO MAIN MENU TABS (Zero Emojis, Clean Vector SVG Icons) */}
-          <div className="inline-flex p-1.5 rounded-2xl bg-slate-900/90 border-2 border-slate-700/80 shadow-2xl mb-8 max-w-md w-full backdrop-blur-md">
+          {/* TWO MAIN MENU TABS (Zero Emojis, Clean SVG Icons) */}
+          <div className="inline-flex p-1.5 rounded-2xl bg-slate-800/95 border-2 border-slate-700 shadow-2xl mb-8 max-w-md w-full">
             <button
               onClick={() => handleTabChange('air')}
-              className={`flex-1 py-3.5 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2.5 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'air'
                   ? 'bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/25 scale-[1.02]'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
             >
-              <svg className="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
               <span>Package / Air Cargo</span>
@@ -110,13 +108,13 @@ export default function Home() {
 
             <button
               onClick={() => handleTabChange('ocean')}
-              className={`flex-1 py-3.5 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2.5 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'ocean'
                   ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 scale-[1.02]'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
             >
-              <svg className="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M3 13h18M3 17h18M5 9l2-4h10l2 4M4 21h16a1 1 0 001-1v-4H3v4a1 1 0 001 1z" />
               </svg>
               <span>Ocean Cargo</span>
@@ -132,11 +130,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main Content Results Section */}
+      {/* Main Content Area */}
       <div className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full -mt-6 relative z-10 pb-20">
         {!hasSearched ? (
-          <div className="bg-white rounded-2xl border-2 border-dashed border-amber-300/80 shadow-md p-12 text-center text-slate-500">
-            <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200">
+          <div className="bg-white rounded-2xl border-2 border-dashed border-amber-300 shadow-sm p-12 text-center text-slate-500">
+            <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200 text-slate-700">
               {mode === 'air' ? (
                 <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -152,8 +150,8 @@ export default function Home() {
             </h3>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
               {mode === 'air'
-                ? 'Enter your exact House Air Waybill (HAWB) number above to display flight schedules and milestones.'
-                : 'Enter your exact Bill of Lading (B/L) number above to display maritime vessel voyages and clearance.'}
+                ? 'Enter your exact HAWB number above to view flight schedules, clearance status, and delivery milestones.'
+                : 'Enter your exact B/L number above to view vessel voyage, port schedules, and arrival status.'}
             </p>
           </div>
         ) : isSearching ? (
@@ -195,10 +193,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-white border-t-2 border-slate-800 py-8 px-4 mt-auto">
+      <footer className="bg-slate-900 text-white border-t border-slate-800 py-8 px-4 text-center mt-auto">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="bg-white/95 px-4 py-2 rounded-xl border border-amber-400/40">
-            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain" />
+          <div className="bg-white/95 px-3 py-1.5 rounded-lg border border-amber-400/40">
+            <img src="/logo.png" alt="Logo" className="h-8 w-auto object-contain" />
           </div>
           <p className="text-xs text-slate-400">
             Cargo Tracking System &copy; {new Date().getFullYear()}. All rights reserved.
