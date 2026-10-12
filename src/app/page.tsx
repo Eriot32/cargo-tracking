@@ -197,11 +197,10 @@ export default function Home() {
         )}
       </div>
 
-      {/* Clean Light Footer */}
-      <footer className="bg-white border-t border-slate-200 py-6 px-4 mt-auto text-center">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <img src="/logo.png" alt="Logo" className="h-8 w-auto object-contain" />
-          <p className="text-xs text-slate-500">
+      {/* Navy Blue Footer */}
+      <footer className="bg-[#152232] border-t border-[#1e3046] py-6 px-4 mt-auto text-center">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <p className="text-xs text-slate-300 font-medium">
             Cargo Tracking System &copy; {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
