@@ -44,14 +44,20 @@ export default function Home() {
       <header className="bg-white border-b border-slate-200/80 shadow-sm relative z-20">
         <div className="h-1.5 w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Logo - Clickable to Company Website */}
+          <a
+            href="https://abhinayatransnuswantara.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit PT. Abhinaya Trans Nuswantara"
+            className="flex items-center transition-transform hover:scale-105 active:scale-95"
+          >
             <img
               src="/logo.png"
               alt="PT. Abhinaya Trans Nuswantara"
-              className="h-12 sm:h-14 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain cursor-pointer"
             />
-          </div>
+          </a>
 
           {/* Admin Portal Shortcut */}
           <div>

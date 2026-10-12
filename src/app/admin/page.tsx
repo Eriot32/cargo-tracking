@@ -416,9 +416,15 @@ export default function AdminPanel() {
       {/* Top Bar */}
       <nav className="bg-slate-900 text-white p-4 shadow-lg border-b-2 border-amber-400 flex justify-between items-center px-6">
         <div className="flex items-center gap-4">
-          <div className="bg-white/95 px-4 py-1.5 rounded-xl border border-amber-400/40">
-            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain" />
-          </div>
+          <a
+            href="https://abhinayatransnuswantara.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit PT. Abhinaya Trans Nuswantara"
+            className="bg-white/95 px-4 py-1.5 rounded-xl border border-amber-400/40 hover:scale-105 transition-transform"
+          >
+            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain cursor-pointer" />
+          </a>
           <span className="font-extrabold text-amber-400 text-sm sm:text-base hidden sm:inline">
             Management Dashboard
           </span>
