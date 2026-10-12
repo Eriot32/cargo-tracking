@@ -151,16 +151,16 @@ export default function AdminPanel() {
 
         if (supabase) {
           setStatusMessage('Updating Supabase database...');
-          await supabase.from('air_cargo_tracking').delete().gte('id', 0);
+          await supabase!.from('air_cargo_tracking').delete().gte('id', 0);
           const dbRows = records.map(({ id, ...rest }) => rest);
-          const { error } = await supabase.from('air_cargo_tracking').insert(dbRows);
+          const { error } = await supabase!.from('air_cargo_tracking').insert(dbRows);
           if (error) console.warn('Supabase sync notice:', error.message);
         }
 
         setAirList(records);
-        setStatusMessage(`✅ Successfully imported ${records.length} Air Cargo records!`);
+        setStatusMessage(`Successfully imported ${records.length} Air Cargo records.`);
       } catch (err: any) {
-        setStatusMessage('❌ Error: ' + err.message);
+        setStatusMessage('Error: ' + err.message);
       }
     };
     reader.readAsBinaryString(file);
@@ -200,9 +200,9 @@ export default function AdminPanel() {
       try {
         const { id, ...payload } = record;
         if (airForm.id) {
-          await supabase.from('air_cargo_tracking').update(payload).eq('id', airForm.id);
+          await supabase!.from('air_cargo_tracking').update(payload).eq('id', airForm.id);
         } else {
-          await supabase.from('air_cargo_tracking').insert(payload);
+          await supabase!.from('air_cargo_tracking').insert(payload);
         }
       } catch (e) {
         console.warn(e);
@@ -218,10 +218,10 @@ export default function AdminPanel() {
   };
 
   const handleDeleteAir = async (id: string, hawb: string) => {
-    if (!confirm(`Hapus data Air HAWB ${hawb}?`)) return;
+    if (!confirm(`Delete Air HAWB ${hawb}?`)) return;
     if (supabase) {
       try {
-        await supabase.from('air_cargo_tracking').delete().eq('id', id);
+        await supabase!.from('air_cargo_tracking').delete().eq('id', id);
       } catch (e) {
         console.warn(e);
       }
@@ -301,16 +301,16 @@ export default function AdminPanel() {
 
         if (supabase) {
           setStatusMessage('Updating Supabase database...');
-          await supabase.from('ocean_cargo_tracking').delete().gte('id', 0);
+          await supabase!.from('ocean_cargo_tracking').delete().gte('id', 0);
           const dbRows = records.map(({ id, ...rest }) => rest);
-          const { error } = await supabase.from('ocean_cargo_tracking').insert(dbRows);
+          const { error } = await supabase!.from('ocean_cargo_tracking').insert(dbRows);
           if (error) console.warn('Supabase sync notice:', error.message);
         }
 
         setOceanList(records);
-        setStatusMessage(`✅ Successfully imported ${records.length} Ocean Cargo records!`);
+        setStatusMessage(`Successfully imported ${records.length} Ocean Cargo records.`);
       } catch (err: any) {
-        setStatusMessage('❌ Error: ' + err.message);
+        setStatusMessage('Error: ' + err.message);
       }
     };
     reader.readAsBinaryString(file);
@@ -346,9 +346,9 @@ export default function AdminPanel() {
       try {
         const { id, ...payload } = record;
         if (oceanForm.id) {
-          await supabase.from('ocean_cargo_tracking').update(payload).eq('id', oceanForm.id);
+          await supabase!.from('ocean_cargo_tracking').update(payload).eq('id', oceanForm.id);
         } else {
-          await supabase.from('ocean_cargo_tracking').insert(payload);
+          await supabase!.from('ocean_cargo_tracking').insert(payload);
         }
       } catch (e) {
         console.warn(e);
@@ -364,10 +364,10 @@ export default function AdminPanel() {
   };
 
   const handleDeleteOcean = async (id: string, bl: string) => {
-    if (!confirm(`Hapus data Ocean B/L ${bl}?`)) return;
+    if (!confirm(`Delete Ocean B/L ${bl}?`)) return;
     if (supabase) {
       try {
-        await supabase.from('ocean_cargo_tracking').delete().eq('id', id);
+        await supabase!.from('ocean_cargo_tracking').delete().eq('id', id);
       } catch (e) {
         console.warn(e);
       }
@@ -380,8 +380,8 @@ export default function AdminPanel() {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
         <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md text-center border-t-4 border-amber-400">
-          <div className="bg-slate-900 p-3 rounded-xl mb-6 inline-block">
-            <img src="/logo.png" alt="Logo" className="h-14 w-auto object-contain mx-auto" />
+          <div className="bg-slate-900 p-4 rounded-2xl mb-6 inline-block shadow-md border border-amber-400/30">
+            <img src="/logo.png" alt="Logo" className="h-16 w-auto object-contain mx-auto" />
           </div>
           <h1 className="text-2xl font-black text-slate-900 mb-1">Admin Portal</h1>
           <p className="text-slate-500 mb-6 text-sm font-medium">Enter password to access cargo management</p>
@@ -395,14 +395,14 @@ export default function AdminPanel() {
             />
             <button
               type="submit"
-              className="w-full bg-amber-400 hover:bg-amber-500 text-slate-950 font-black py-3 rounded-xl transition-all shadow-md active:scale-98"
+              className="w-full bg-amber-400 hover:bg-amber-500 text-slate-950 font-black py-3 rounded-xl transition-all shadow-md active:scale-98 uppercase tracking-wider"
             >
               Sign In
             </button>
           </form>
           <div className="mt-6 pt-4 border-t border-slate-100">
             <a href="/" className="text-xs font-bold text-slate-500 hover:text-amber-600 transition-colors">
-              ← Return to Tracking Portal
+              Return to Tracking Portal
             </a>
           </div>
         </div>
@@ -416,7 +416,7 @@ export default function AdminPanel() {
       {/* Top Bar */}
       <nav className="bg-slate-900 text-white p-4 shadow-lg border-b-2 border-amber-400 flex justify-between items-center px-6">
         <div className="flex items-center gap-4">
-          <div className="bg-white/95 px-3 py-1 rounded-lg">
+          <div className="bg-white/95 px-4 py-1.5 rounded-xl border border-amber-400/40">
             <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain" />
           </div>
           <span className="font-extrabold text-amber-400 text-sm sm:text-base hidden sm:inline">
@@ -426,13 +426,13 @@ export default function AdminPanel() {
         <div className="flex items-center gap-3">
           <a
             href="/"
-            className="text-xs bg-slate-800 hover:bg-slate-700 text-amber-300 px-3 py-2 rounded-lg font-bold border border-slate-700 transition-colors"
+            className="text-xs bg-slate-800 hover:bg-slate-700 text-amber-300 px-3.5 py-2 rounded-lg font-bold border border-slate-700 transition-colors"
           >
-            Client View
+            Client Portal
           </a>
           <button
             onClick={() => setIsLoggedIn(false)}
-            className="text-xs bg-red-600/80 hover:bg-red-600 text-white px-3 py-2 rounded-lg font-bold transition-colors"
+            className="text-xs bg-red-600/80 hover:bg-red-600 text-white px-3.5 py-2 rounded-lg font-bold transition-colors"
           >
             Logout
           </button>
@@ -440,7 +440,7 @@ export default function AdminPanel() {
       </nav>
 
       <main className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6">
-        {/* TABS: Package / Air Cargo vs Ocean Cargo */}
+        {/* TABS: Package / Air Cargo vs Ocean Cargo (No emojis) */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-3 rounded-2xl shadow-sm border border-slate-200">
           <div className="flex gap-2 w-full sm:w-auto">
             <button
@@ -451,7 +451,9 @@ export default function AdminPanel() {
                   : 'text-slate-600 hover:bg-slate-100'
               }`}
             >
-              <span>✈️</span>
+              <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
               <span>Package / Air Cargo</span>
               <span className="px-2 py-0.5 rounded-full text-xs bg-slate-900 text-amber-300 font-bold ml-1">
                 {airList.length}
@@ -466,7 +468,9 @@ export default function AdminPanel() {
                   : 'text-slate-600 hover:bg-slate-100'
               }`}
             >
-              <span>🚢</span>
+              <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M3 13h18M3 17h18M5 9l2-4h10l2 4M4 21h16a1 1 0 001-1v-4H3v4a1 1 0 001 1z" />
+              </svg>
               <span>Ocean Cargo</span>
               <span className="px-2 py-0.5 rounded-full text-xs bg-white text-blue-900 font-bold ml-1">
                 {oceanList.length}
@@ -530,7 +534,7 @@ export default function AdminPanel() {
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             <div className="p-4 border-b border-slate-100 bg-amber-50/50 flex justify-between items-center">
               <div>
-                <h3 className="font-black text-slate-900 text-base">✈️ Air Freight Database</h3>
+                <h3 className="font-black text-slate-900 text-base">Air Freight Database</h3>
                 <p className="text-xs text-slate-500">Searchable by HAWB and MAWB on client portal</p>
               </div>
               <span className="text-xs font-black bg-amber-400 text-slate-950 px-3 py-1 rounded-full">
@@ -593,7 +597,7 @@ export default function AdminPanel() {
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             <div className="p-4 border-b border-slate-100 bg-blue-50/50 flex justify-between items-center">
               <div>
-                <h3 className="font-black text-slate-900 text-base">🚢 Ocean Freight Database</h3>
+                <h3 className="font-black text-slate-900 text-base">Ocean Freight Database</h3>
                 <p className="text-xs text-slate-500">Searchable by B/L No. on client portal</p>
               </div>
               <span className="text-xs font-black bg-blue-600 text-white px-3 py-1 rounded-full">
@@ -654,7 +658,7 @@ export default function AdminPanel() {
           <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl flex flex-col border-t-4 border-amber-400">
             <div className="p-5 border-b border-slate-100 flex justify-between items-center bg-amber-50/50 sticky top-0 z-10">
               <h2 className="text-lg font-black text-slate-900">
-                {airForm.id ? '✏️ Edit Air Cargo Record' : '➕ Add New Air Cargo Record'}
+                {airForm.id ? 'Edit Air Cargo Record' : 'Add New Air Cargo Record'}
               </h2>
               <button onClick={() => setIsAirModalOpen(false)} className="text-slate-400 hover:text-slate-700 p-2">✕</button>
             </div>
@@ -778,7 +782,7 @@ export default function AdminPanel() {
           <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl flex flex-col border-t-4 border-blue-500">
             <div className="p-5 border-b border-slate-100 flex justify-between items-center bg-blue-50/50 sticky top-0 z-10">
               <h2 className="text-lg font-black text-slate-900">
-                {oceanForm.id ? '✏️ Edit Ocean Cargo Record' : '➕ Add New Ocean Cargo Record'}
+                {oceanForm.id ? 'Edit Ocean Cargo Record' : 'Add New Ocean Cargo Record'}
               </h2>
               <button onClick={() => setIsOceanModalOpen(false)} className="text-slate-400 hover:text-slate-700 p-2">✕</button>
             </div>
