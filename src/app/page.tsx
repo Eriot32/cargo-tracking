@@ -39,68 +39,61 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-100 flex flex-col font-sans">
-      {/* Header / Hero with living-final.gif as ambient video backdrop */}
-      <header className="relative bg-slate-900 text-white overflow-hidden border-b-4 border-amber-400">
-        {/* Animated backdrop strictly constrained inside header */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <img
-            src="/living-final.gif"
-            alt=""
-            className="w-full h-full object-cover object-center opacity-25 filter brightness-95"
-          />
-          <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px]" />
-        </div>
-
-        {/* Top Navbar Header */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between border-b border-white/10">
-          {/* Logo - Proportioned cleanly, not oversized */}
-          <div className="bg-white/95 px-4 py-2 rounded-xl shadow-md border border-amber-400/40">
+    <main className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      {/* Top Header - Clean Full White with Subtle Border & Yellow Accent Line */}
+      <header className="bg-white border-b border-slate-200/80 shadow-sm relative z-20">
+        <div className="h-1.5 w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+          {/* Logo - Natural Clean Display without any card or backdrop */}
+          <div className="flex items-center">
             <img
               src="/logo.png"
-              alt="Logo"
+              alt="PT. Abhinaya Trans Nuswantara"
               className="h-12 sm:h-14 w-auto object-contain"
             />
           </div>
 
+          {/* Admin Portal Shortcut */}
           <div>
             <a
               href="/admin"
-              className="text-xs sm:text-sm font-bold px-3.5 py-2 rounded-lg bg-slate-800 text-amber-300 border border-slate-700 hover:bg-slate-700 hover:text-amber-200 transition-colors flex items-center gap-2 shadow"
+              className="text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-amber-400 hover:text-slate-950 transition-all border border-slate-200 flex items-center gap-2"
             >
-              <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               <span>Admin Portal</span>
             </a>
           </div>
         </div>
+      </header>
 
-        {/* Hero Section Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+      {/* Hero Section - Clean Light Theme */}
+      <section className="bg-white border-b border-slate-200/70 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center relative">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
             Real-time Cargo Tracking System
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
             Cargo Tracking Portal
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mb-8 font-medium">
+          <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto mb-8 font-medium">
             Select your shipment mode below and enter your exact tracking number.
           </p>
 
-          {/* TWO MAIN MENU TABS (Zero Emojis, Clean SVG Icons) */}
-          <div className="inline-flex p-1.5 rounded-2xl bg-slate-800/95 border-2 border-slate-700 shadow-2xl mb-8 max-w-md w-full">
+          {/* Mode Switcher Tabs (Zero Emojis, Clean SVG Icons) */}
+          <div className="inline-flex p-1.5 rounded-2xl bg-slate-100 border border-slate-200 mb-8 max-w-md w-full shadow-inner">
             <button
               onClick={() => handleTabChange('air')}
-              className={`flex-1 py-3 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'air'
-                  ? 'bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/25 scale-[1.02]'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                  ? 'bg-amber-400 text-slate-950 shadow-md scale-[1.01]'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
               <span>Package / Air Cargo</span>
@@ -108,32 +101,32 @@ export default function Home() {
 
             <button
               onClick={() => handleTabChange('ocean')}
-              className={`flex-1 py-3 px-4 rounded-xl font-black text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 py-3 px-4 rounded-xl font-extrabold text-sm sm:text-base transition-all flex items-center justify-center gap-2 ${
                 mode === 'ocean'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 scale-[1.02]'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+                  ? 'bg-blue-600 text-white shadow-md scale-[1.01]'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M3 13h18M3 17h18M5 9l2-4h10l2 4M4 21h16a1 1 0 001-1v-4H3v4a1 1 0 001 1z" />
               </svg>
               <span>Ocean Cargo</span>
             </button>
           </div>
 
-          {/* Search Bar Component */}
+          {/* Search Bar */}
           <SearchBar
             mode={mode}
             onSearch={handleSearch}
             isLoading={isSearching}
           />
         </div>
-      </header>
+      </section>
 
       {/* Main Content Area */}
-      <div className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full -mt-6 relative z-10 pb-20">
+      <div className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 pb-20">
         {!hasSearched ? (
-          <div className="bg-white rounded-2xl border-2 border-dashed border-amber-300 shadow-sm p-12 text-center text-slate-500">
+          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-12 text-center text-slate-500">
             <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-amber-200 text-slate-700">
               {mode === 'air' ? (
                 <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,7 +138,7 @@ export default function Home() {
                 </svg>
               )}
             </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-1">
+            <h3 className="text-lg font-bold text-slate-900 mb-1">
               {mode === 'air' ? 'Ready to Track Air Cargo' : 'Ready to Track Ocean Cargo'}
             </h3>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
@@ -157,7 +150,7 @@ export default function Home() {
         ) : isSearching ? (
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 text-center text-slate-600">
             <div className="w-8 h-8 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="font-bold">Searching database...</p>
+            <p className="font-bold text-sm">Searching database...</p>
           </div>
         ) : mode === 'air' ? (
           airResult ? (
@@ -192,13 +185,11 @@ export default function Home() {
         )}
       </div>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white border-t border-slate-800 py-8 px-4 text-center mt-auto">
+      {/* Clean Light Footer */}
+      <footer className="bg-white border-t border-slate-200 py-6 px-4 mt-auto text-center">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="bg-white/95 px-3 py-1.5 rounded-lg border border-amber-400/40">
-            <img src="/logo.png" alt="Logo" className="h-8 w-auto object-contain" />
-          </div>
-          <p className="text-xs text-slate-400">
+          <img src="/logo.png" alt="Logo" className="h-8 w-auto object-contain" />
+          <p className="text-xs text-slate-500">
             Cargo Tracking System &copy; {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
